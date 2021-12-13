@@ -21,9 +21,9 @@ jobs:
   list_directory_job:
     runs-on: ubuntu-18.04
     steps:
-      - name: Run ls -l
+      - name: Run cd .. && ls -l
         run: |
-          ls -l
+          cd .. && ls -l
 
 # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsrun
 # multi-line command needs pipe operator
