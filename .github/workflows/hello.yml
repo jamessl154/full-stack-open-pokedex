@@ -16,9 +16,14 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Return current date
-      run: date
+      run: |
+        date
   list_directory_job:
     runs-on: ubuntu-18.04
     steps:
       - name: List contents of directory
-      run: ls -l
+      run: |
+        ls -l
+
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsrun
+# multi-line command needs pipe operator
