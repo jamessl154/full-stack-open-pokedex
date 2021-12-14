@@ -4,10 +4,20 @@ module.exports = {
     "es6": true,
     "jest/globals": true
   },
+  // https://eslint.org/docs/rules/no-process-env
+  "globals": {
+    "process": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  // https://github.com/yannickcr/eslint-plugin-react/pull/2114/commits/40f25659b9c801131bb0abed2030fdc54d88a074
+  "settings": {
+    "react": {
+      "version": "detect",
+    },
+  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -43,7 +53,7 @@ module.exports = {
     "arrow-spacing": [
       "error", { "before": true, "after": true }
     ],
-    "no-console": "error",
+    "no-console": 0,
     "react/prop-types": 0
   }
 }
