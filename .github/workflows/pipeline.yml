@@ -24,6 +24,9 @@ jobs:
       - name: cypress e2e tests
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v2
+        # https://github.com/cypress-io/github-action#debugging
+        env:
+          DEBUG: '@cypress/github-action'
         with:
           command: npm run test:e2e
           start: npm run start-prod
