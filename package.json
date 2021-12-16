@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "export NODE_OPTIONS=--openssl-legacy-provider; webpack-dev-server --open --mode development",
-    "start-prod": "export NODE_OPTIONS=--openssl-legacy-provider; node app.js",
-    "start-prod-pipeline": "node app.js",
+    "start-prod": "node app.js",
     "test": "jest",
     "eslint": "eslint './**/*.{js,jsx}'",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider; webpack --mode production",
