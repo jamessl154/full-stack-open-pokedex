@@ -26,7 +26,7 @@ jobs:
         uses: cypress-io/github-action@v2
         # https://github.com/cypress-io/github-action#debugging
         env:
-          DEBUG: '@cypress/github-action'
+          DEBUG: 'cypress:*'
         with:
           start: npm run start-prod
           # https://github.com/cypress-io/github-action#wait-on
