@@ -22,7 +22,7 @@ jobs:
       - name: jest unit/integration tests
         run: npm run test
       - name: build
-        run: npm run build-in-pipeline
+        run: npm run build
       - name: cypress e2e tests
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v2

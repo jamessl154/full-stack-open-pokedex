@@ -8,8 +8,8 @@
     "start-prod": "node app.js",
     "test": "jest",
     "eslint": "eslint './**/*.{js,jsx}'",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider; webpack --mode production",
-    "build-in-pipeline": "webpack --mode production",
+    "build": "webpack --mode production",
+    "build-local": "export NODE_OPTIONS=--openssl-legacy-provider; webpack --mode production",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run"
   },
