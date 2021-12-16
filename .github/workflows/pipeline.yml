@@ -30,3 +30,11 @@ jobs:
           start: npm run start-prod
           command: npm run test:e2e
           wait-on: 'http://localhost:5000'
+        # If all previous steps succeed, deploy
+      - name: deploy to heroku
+        # https://github.com/AkhileshNS/heroku-deploy
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: hidden-spire-33552
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
