@@ -27,3 +27,5 @@ jobs:
         # https://github.com/cypress-io/github-action#debugging
         with:
           start: npm run start-prod
+          command: npm run test:e2e
+          wait-on: 'http://localhost:5000'
