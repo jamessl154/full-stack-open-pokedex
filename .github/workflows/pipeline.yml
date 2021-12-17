@@ -41,3 +41,6 @@ jobs:
           # https://github.com/AkhileshNS/heroku-deploy#health-check
           healthcheck: "https://hidden-spire-33552.herokuapp.com/health"
           checkstring: "Healthy!"
+          # https://blog.heroku.com/releases-and-rollbacks#rollbacks
+          # https://github.com/AkhileshNS/heroku-deploy#rollback-on-healthcheck-failure
+          rollbackonhealthcheckfailed: true
