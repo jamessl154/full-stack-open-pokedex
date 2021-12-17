@@ -38,3 +38,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: hidden-spire-33552
           heroku_email: ${{secrets.EMAIL}}
+          # https://github.com/AkhileshNS/heroku-deploy#health-check
+          healthcheck: "https://hidden-spire-33552.herokuapp.com/health"
+          checkstring: "Healthy!"
