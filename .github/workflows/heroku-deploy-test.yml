@@ -3,7 +3,7 @@ name: Heroku Deploy Test
 on:
   push:
     branches:
-      - master
+      - never
 
 jobs:
   build:
