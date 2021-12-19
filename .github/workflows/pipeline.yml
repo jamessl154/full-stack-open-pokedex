@@ -48,3 +48,10 @@ jobs:
           # https://blog.heroku.com/releases-and-rollbacks#rollbacks
           # https://github.com/AkhileshNS/heroku-deploy#rollback-on-healthcheck-failure
           rollbackonhealthcheckfailed: true
+      - name: Bump version and push tag
+        # https://github.com/anothrNick/github-tag-action
+        uses: anothrNick/github-tag-action@1.33.0
+        if: ${{ github.event_name == 'push' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
