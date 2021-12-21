@@ -23,7 +23,7 @@ jobs:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
       - name: do this if contains '#skip'
-        if: ${{ github.event_name == 'push' && join(github.event.commits.*.message, ',').includes('#skip') }}
+        if: ${{ github.event_name == 'push' && join($COMMIT_MESSAGES).includes('#skip') }}
         run: echo "this commit message included '#skip'"
       - name: do this if contains '#test'
         if: ${{ github.event_name == 'push' && join(github.event.commits.*.message, ',').includes('#test') }}
