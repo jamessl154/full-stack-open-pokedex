@@ -3,7 +3,7 @@ name: Deployment pipeline
 on:
   push:
     branches:
-      - never
+      - master
   pull_request:
     branches: [master]
     types: [opened, synchronize]
@@ -37,7 +37,7 @@ jobs:
       - name: deploy to heroku
         # https://github.com/AkhileshNS/heroku-deploy
         uses: akhileshns/heroku-deploy@v3.12.12
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: hidden-spire-33552
@@ -52,7 +52,7 @@ jobs:
       - name: Bump version and push tag
         # https://github.com/anothrNick/github-tag-action
         uses: anothrNick/github-tag-action@1.33.0
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
