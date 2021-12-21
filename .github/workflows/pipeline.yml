@@ -56,3 +56,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+        # https://github.com/nektos/act for testing actions locally
