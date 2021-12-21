@@ -57,4 +57,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
         # https://github.com/nektos/act for testing actions locally
-        # test how pull request merges are handled when commit messages contain / not contain #skip
+        # test how pull request merges are handled when commit messages contain / not contain #skip 
