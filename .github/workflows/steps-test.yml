@@ -39,8 +39,8 @@ jobs:
           JOB_STATUS: ${{ toJson(job.status) }}
         run: echo "$JOB_STATUS"
       - name: Run if failed job
-        if: ${{ job.status == 'failure' }}
+        if: ${{ toJson(job.status) == 'failure' }}
         run: echo "If the job fails I will run"
       - name: Run if failed test step
-        if: ${{ steps.jest_tests.outcome == 'failure' }}
+        if: ${{ toJson(steps.jest_tests.outcome) == 'failure' }}
         run: echo "Notification for failed test step"
