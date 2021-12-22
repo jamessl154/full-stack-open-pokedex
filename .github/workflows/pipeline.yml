@@ -73,3 +73,5 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: "Pipeline has failed"
+          STEPS: ${{ toJson(steps) }}
+          SLACK_MESSAGE: $STEPS
