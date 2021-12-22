@@ -25,7 +25,7 @@ jobs:
         run: echo "$STEPS"
       - name: test conclusion
         env:
-          TEST_STEPS: ${{ toJson(steps.jest_test.outcome) }}
+          TEST_STEPS: ${{ toJson(steps.jest_tests.outcome) }}
         if: always()
         run: echo "$TEST_STEPS"
       - name: job
@@ -38,3 +38,9 @@ jobs:
         env:
           JOB_STATUS: ${{ toJson(job.status) }}
         run: echo "$JOB_STATUS"
+      - name: Run if failed job
+        if: ${{ job.status == "failed" }}
+        run: echo "If the job fails I will run"
+      - name: Run if failed test step
+        if: ${{ steps.jest_tests.outcome == "failed" }}
+        run: echo "Notification for failed test step"
