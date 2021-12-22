@@ -27,7 +27,7 @@ jobs:
         env:
           TEST_STEPS: ${{ toJson(steps.jest_test.outcome) }}
         if: always()
-        runs: echo "$TEST_STEPS"
+        run: echo "$TEST_STEPS"
       - name: job
         if: always()
         env:
