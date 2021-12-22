@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
         # https://github.com/nektos/act for testing actions locally
-        # Steps run sequentially, if we reach here we have successfully versioned and deployed
+        # Steps run sequentially, if we reach here we have successfully versioned and deployed.
       - name: Slack Notification on successful version and deploy
         # https://github.com/marketplace/actions/slack-notify
         uses: rtCamp/action-slack-notify@v2
