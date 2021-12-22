@@ -57,3 +57,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
         # https://github.com/nektos/act for testing actions locally
+      - name: Slack Notification on successful version and deploy
+        # https://github.com/marketplace/actions/slack-notify
+        uses: rtCamp/action-slack-notify@v2
+        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_TITLE: "Successfully bumped version and deployed :rocket:"
+      - name: Slack Notification on failure

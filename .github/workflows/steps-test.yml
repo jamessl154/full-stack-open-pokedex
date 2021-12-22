@@ -1,0 +1,44 @@
+name: Testing Steps / Job context
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  steps-context-test-job:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: npm install
+        run: npm install
+      - name: jest unit/integration tests
+        run: npm run test
+        id: jest_tests
+
+      - name: steps
+        env:
+          STEPS: ${{ toJson(steps) }}
+        if: always()
+        run: echo "$STEPS"
+
+      - name: test conclusion
+        env:
+          TEST_STEPS: ${{ toJson(steps.jest_test.outcome) }}
+        if: always()
+        runs: echo "$TEST_STEPS"
+
+      - name: job
+        if: always()
+        env:
+          JOB: ${{ toJson(job) }}
+        run: echo "$JOB"
+
+      - name: job.status
+        if: always()
+        env:
+          JOB_STATUS: ${{ toJson(job.status) }}
+        run: echo "$JOB_STATUS"
