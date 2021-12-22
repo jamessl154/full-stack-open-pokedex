@@ -18,25 +18,21 @@ jobs:
       - name: jest unit/integration tests
         run: npm run test
         id: jest_tests
-
       - name: steps
         env:
           STEPS: ${{ toJson(steps) }}
         if: always()
         run: echo "$STEPS"
-
       - name: test conclusion
         env:
           TEST_STEPS: ${{ toJson(steps.jest_test.outcome) }}
         if: always()
         runs: echo "$TEST_STEPS"
-
       - name: job
         if: always()
         env:
           JOB: ${{ toJson(job) }}
         run: echo "$JOB"
-
       - name: job.status
         if: always()
         env:
