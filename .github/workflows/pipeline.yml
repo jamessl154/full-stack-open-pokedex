@@ -74,4 +74,4 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: "Pipeline has failed"
           STEPS: ${{ toJson(steps) }}
-          SLACK_MESSAGE: $STEPS
+          SLACK_MESSAGE: ${{ $STEPS }}
