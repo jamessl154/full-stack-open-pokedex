@@ -2,7 +2,11 @@ name: url-healthcheck
 
 on:
   schedule:
+    # https://crontab.guru/#0_12_*_*_*
     - cron: '0 12 * * *'
+  push:
+    branches:
+      - master
 
 jobs:
   healthcheck_deployed_software:
