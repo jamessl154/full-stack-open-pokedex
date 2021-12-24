@@ -3,7 +3,7 @@ name: url-healthcheck
 on:
   schedule:
     # https://crontab.guru/#0_12_*_*_*
-    - cron: '0 12 * * *'
+    - cron: '0 13 * * *'
   push:
     branches:
       - master
