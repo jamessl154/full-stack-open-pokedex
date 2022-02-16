@@ -12,6 +12,8 @@ Used [cron](https://crontab.guru/#0_12_*_*_*) to schedule jobs. Used the [GitHub
 
 ![full-stack-open-pokedex](https://github.com/jamessl154/full-stack-open-pokedex/actions/workflows/pipeline.yml/badge.svg)
 
+#### The project for the final exercise of this part can be found [here](https://github.com/jamessl154/bloglist)
+
 ---
 
 This repository is used for the CI/CD module of the Full stack open course
